@@ -309,6 +309,8 @@ function getTurnsString() {
     var dc;
     var ab1;
     var ab2;
+    var ab3;
+    var ab4;
     var delays = [];
     var order = [];
     var skip = [false, false, false, false, false];
@@ -340,7 +342,9 @@ function getTurnsString() {
             }
             ab1 = $(".turn-" + (i + 1)).find('.unit-' + j + '-action').find('.dc1-ability-select').val();
             ab2 = $(".turn-" + (i + 1)).find('.unit-' + j + '-action').find('.dc2-ability-select').val();
-            macro += getActionString(unit, action, ability, target, dc, ab1, ab2);
+            ab3 = $(".turn-" + (i + 1)).find('.unit-' + j + '-action').find('.dc3-ability-select').val();
+            ab4 = $(".turn-" + (i + 1)).find('.unit-' + j + '-action').find('.dc4-ability-select').val();
+            macro += getActionString(unit, action, ability, target, dc, ab1, ab2, ab3, ab4);
             addTime(abilityWait);
             if (action === "none") {
                 skip[j] = true;
@@ -540,13 +544,15 @@ function addTime(amount) {
 }
 
 //Builds the string for specific actions (ability usage, defed, items)
-function getActionString(unit, action, ability, target, dc, ab1, ab2) {
+function getActionString(unit, action, ability, target, dc, ab1, ab2, ab3, ab4) {
     var macro = "";
     var pos = [1, 2, 3, 4, 5, 6];
     ability = parseInt(ability);
     target = parseInt(target);
     ab1 = parseInt(ab1);
     ab2 = parseInt(ab2);
+    ab3 = parseInt(ab3);
+    ab4 = parseInt(ab4);
     var j;
 
     switch (action) {
@@ -645,6 +651,56 @@ function getActionString(unit, action, ability, target, dc, ab1, ab2) {
                         macro += getTime() + endClick;
                         addTime(500000);
                         break;
+                    }
+                }
+                
+                //Third Ability
+                if (ab3 !== 0) {
+                    while (true) {
+                        if (pos.indexOf(ab3) === -1) {
+                            if (ab3 > pos[5]) {
+                                macro += scroll("down");
+                                for (j = 0; j < 6; j++) {
+                                    pos[j] += 2;
+                                }
+                            } else if (ab3 < pos[0]) {
+                                macro += scroll("up");
+                                for (j = 0; j < 6; j++) {
+                                    pos[j] -= 2;
+                                }
+                            }
+                        } else {
+                            //Click ability
+                            macro += getTime() + unitLoc[pos.indexOf(ab3)];
+                            macro += getTime() + endClick;
+                            addTime(500000);
+                            break;
+                        }
+                    }
+                }
+                
+                //Fourth Ability
+                if (ab4 !== 0) {
+                    while (true) {
+                        if (pos.indexOf(ab4) === -1) {
+                            if (ab4 > pos[5]) {
+                                macro += scroll("down");
+                                for (j = 0; j < 6; j++) {
+                                    pos[j] += 2;
+                                }
+                            } else if (ab4 < pos[0]) {
+                                macro += scroll("up");
+                                for (j = 0; j < 6; j++) {
+                                    pos[j] -= 2;
+                                }
+                            }
+                        } else {
+                            //Click ability
+                            macro += getTime() + unitLoc[pos.indexOf(ab4)];
+                            macro += getTime() + endClick;
+                            addTime(500000);
+                            break;
+                        }
                     }
                 }
             }
@@ -749,6 +805,8 @@ function getTurnObject(turn) {
     var dc;
     var ab1;
     var ab2;
+    var ab3;
+    var ab4;
     var delays = [];
     var order = [];
     var adv;
@@ -772,7 +830,9 @@ function getTurnObject(turn) {
             target: "",
             dc: "",
             ab1: "",
-            ab2: ""
+            ab2: "",
+            ab3: "",
+            ab4: ""
         },
         unit2: {
             action: "",
@@ -788,7 +848,9 @@ function getTurnObject(turn) {
             target: "",
             dc: "",
             ab1: "",
-            ab2: ""
+            ab2: "",
+            ab3: "",
+            ab4: ""
         },
         unit4: {
             action: "",
@@ -796,7 +858,9 @@ function getTurnObject(turn) {
             target: "",
             dc: "",
             ab1: "",
-            ab2: ""
+            ab2: "",
+            ab3: "",
+            ab4: ""
         },
         unit5: {
             action: "",
@@ -804,7 +868,9 @@ function getTurnObject(turn) {
             target: "",
             dc: "",
             ab1: "",
-            ab2: ""
+            ab2: "",
+            ab3: "",
+            ab4: ""
         },
         unit6: {
             action: "",
@@ -812,7 +878,9 @@ function getTurnObject(turn) {
             target: "",
             dc: "",
             ab1: "",
-            ab2: ""
+            ab2: "",
+            ab3: "",
+            ab4: ""
         },
         delays: [],
         order: [],
@@ -838,6 +906,8 @@ function getTurnObject(turn) {
         }
         ab1 = $(".turn-" + (turn)).find('.unit-' + j + '-action').find('.dc1-ability-select').val();
         ab2 = $(".turn-" + (turn)).find('.unit-' + j + '-action').find('.dc2-ability-select').val();
+        ab3 = $(".turn-" + (turn)).find('.unit-' + j + '-action').find('.dc3-ability-select').val();
+        ab4 = $(".turn-" + (turn)).find('.unit-' + j + '-action').find('.dc4-ability-select').val();
 
         actions[(j - 1)][0] = action;
         actions[(j - 1)][1] = ability;
@@ -845,6 +915,8 @@ function getTurnObject(turn) {
         actions[(j - 1)][3] = dc;
         actions[(j - 1)][4] = ab1;
         actions[(j - 1)][5] = ab2;
+        actions[(j - 1)][6] = ab3;
+        actions[(j - 1)][7] = ab4;
 
     }
 
@@ -863,36 +935,48 @@ function getTurnObject(turn) {
     turnObj.unit1.dc = actions[0][3];
     turnObj.unit1.ab1 = actions[0][4];
     turnObj.unit1.ab2 = actions[0][5];
+    turnObj.unit1.ab3 = actions[0][6];
+    turnObj.unit1.ab4 = actions[0][7];
     turnObj.unit2.action = actions[1][0];
     turnObj.unit2.ability = actions[1][1];
     turnObj.unit2.target = actions[1][2];
     turnObj.unit2.dc = actions[1][3];
     turnObj.unit2.ab1 = actions[1][4];
     turnObj.unit2.ab2 = actions[1][5];
+    turnObj.unit2.ab3 = actions[1][6];
+    turnObj.unit2.ab4 = actions[1][7];
     turnObj.unit3.action = actions[2][0];
     turnObj.unit3.ability = actions[2][1];
     turnObj.unit3.target = actions[2][2];
     turnObj.unit3.dc = actions[2][3];
     turnObj.unit3.ab1 = actions[2][4];
     turnObj.unit3.ab2 = actions[2][5];
+    turnObj.unit3.ab3 = actions[2][6];
+    turnObj.unit3.ab4 = actions[2][75];
     turnObj.unit4.action = actions[3][0];
     turnObj.unit4.ability = actions[3][1];
     turnObj.unit4.target = actions[3][2];
     turnObj.unit4.dc = actions[3][3];
     turnObj.unit4.ab1 = actions[3][4];
     turnObj.unit4.ab2 = actions[3][5];
+    turnObj.unit4.ab3 = actions[3][6];
+    turnObj.unit4.ab4 = actions[3][7];
     turnObj.unit5.action = actions[4][0];
     turnObj.unit5.ability = actions[4][1];
     turnObj.unit5.target = actions[4][2];
     turnObj.unit5.dc = actions[4][3];
     turnObj.unit5.ab1 = actions[4][4];
     turnObj.unit5.ab2 = actions[4][5];
+    turnObj.unit5.ab3 = actions[4][6];
+    turnObj.unit5.ab4 = actions[4][7];
     turnObj.unit6.action = actions[5][0];
     turnObj.unit6.ability = actions[5][1];
     turnObj.unit6.target = actions[5][2];
     turnObj.unit6.dc = actions[5][3];
     turnObj.unit6.ab1 = actions[5][4];
     turnObj.unit6.ab2 = actions[5][5];
+    turnObj.unit6.ab3 = actions[5][6];
+    turnObj.unit6.ab4 = actions[5][7];
 
     turnObj.delays = delays;
     turnObj.order = order;
@@ -946,6 +1030,8 @@ function setTurnValues(json, turn) {
         }
         $(".turn-" + (turn)).find('.unit-' + (i + 1) + '-action').find('.dc1-ability-select').val(unit.ab1);
         $(".turn-" + (turn)).find('.unit-' + (i + 1) + '-action').find('.dc2-ability-select').val(unit.ab2);
+        $(".turn-" + (turn)).find('.unit-' + (i + 1) + '-action').find('.dc3-ability-select').val(unit.ab3);
+        $(".turn-" + (turn)).find('.unit-' + (i + 1) + '-action').find('.dc4-ability-select').val(unit.ab4);
 
     }
 
