@@ -767,15 +767,15 @@ function scroll(dir) {
     var macro = "";
     var i;
     if (dir == "down") {
-        macro += getTime() + vinput + "0:1090:365\r\n";
+        macro += getTime() + vinput + "0:1090:330\r\n";
         for (i = 0; i < 120; i++) {
-            macro += (time += 3000) + vinput + "2:" + (1089 - i) + ":365\r\n";
+            macro += (time += 3000) + vinput + "2:" + (1089 - i) + ":330\r\n";
         }
         macro += getTime() + endClick;
     } else if (dir == "up") {
-        macro += getTime() + vinput + "0:969:365\r\n";
+        macro += getTime() + vinput + "0:969:330\r\n";
         for (i = 0; i < 120; i++) {
-            macro += (time += 3000) + vinput + "2:" + (969 + i) + ":365\r\n";
+            macro += (time += 3000) + vinput + "2:" + (969 + i) + ":330\r\n";
         }
         macro += getTime() + endClick;
     }
