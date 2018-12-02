@@ -121,7 +121,7 @@ function copyMacroData() {
 //Global Variables, don't hate
 var time = 0;
 var vinput = "--VINPUT--MULTI:1:";
-var clickWait = 10000;
+var clickWait = 20000;
 var endClick = "--VINPUT--MULTI:1:1:0:1578\r\n";
 var mouse = "--VINPUT--MOUSE:392:1276\r\n";
 var unitLoc = ['--VINPUT--MULTI:1:0:860:535\r\n',
