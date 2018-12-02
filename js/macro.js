@@ -769,13 +769,13 @@ function scroll(dir) {
     if (dir == "down") {
         macro += getTime() + vinput + "0:1090:365\r\n";
         for (i = 0; i < 120; i++) {
-            macro += (time += 1000) + vinput + "2:" + (1089 - i) + ":365\r\n";
+            macro += (time += 3000) + vinput + "2:" + (1089 - i) + ":365\r\n";
         }
         macro += getTime() + endClick;
     } else if (dir == "up") {
         macro += getTime() + vinput + "0:969:365\r\n";
         for (i = 0; i < 120; i++) {
-            macro += (time += 1000) + vinput + "2:" + (969 + i) + ":365\r\n";
+            macro += (time += 3000) + vinput + "2:" + (969 + i) + ":365\r\n";
         }
         macro += getTime() + endClick;
     }
