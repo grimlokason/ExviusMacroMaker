@@ -437,7 +437,31 @@ function getEndSkipString() {
         macro += getTime() + endClick;
         macro += getTime() + vinput + "0:1275:718\r\n";
         macro += getTime() + endClick;
-
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        
         macro += getTime() + vinput + "0:1120:350\r\n";
         macro += getTime() + endClick;
         macro += getTime() + mouse;
@@ -450,6 +474,36 @@ function getEndSkipString() {
     macro += getTime() + endClick;
     macro += getTime() + vinput + "0:1275:718\r\n";
     macro += getTime() + endClick;
+    macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
 
     //wait 3 seconds
     addTime(3000000);
@@ -461,7 +515,37 @@ function getEndSkipString() {
         macro += getTime() + endClick;
         macro += getTime() + vinput + "0:1275:718\r\n";
         macro += getTime() + endClick;
-
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        macro += getTime() + vinput + "0:1275:718\r\n";
+        macro += getTime() + endClick;
+        
         //wait 3 seconds
         addTime(3000000);
 
